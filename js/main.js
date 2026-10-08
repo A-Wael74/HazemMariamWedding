@@ -619,11 +619,27 @@ function loadGallery() {
 
 
             image.alt =
-                `صورة ${index + 1}`;
+                `Photo ${index + 1}`;
 
 
             image.loading =
                 "lazy";
+
+            /* Prevent dragging */
+
+            image.draggable =
+                false;
+
+
+            /* Prevent right-click / long-press context menu */
+
+            image.addEventListener(
+                "contextmenu",
+                event => {
+
+                    event.preventDefault();
+                }
+            );
 
 
             gallery.appendChild(

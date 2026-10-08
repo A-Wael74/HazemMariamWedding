@@ -907,6 +907,14 @@ p {
         transform 0.5s ease,
         opacity 0.5s ease,
         box-shadow 0.5s ease;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    pointer-events: auto;
 }
 
 
