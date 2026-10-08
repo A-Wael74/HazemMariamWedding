@@ -21,8 +21,8 @@ const weddingConfig = {
         date: "2026-11-06",
 
         // Time used internally for countdown
-        // 20:00 = 8 PM
-        countdownTime: "20:00:00",
+        // 18:00 = 6 PM
+        countdownTime: "18:00:00",
 
         // What guests see
         displayDate: "6 november 2026",
@@ -51,7 +51,7 @@ const weddingConfig = {
 
 
         welcome:
-            "Somehow, every little moment led us here, With full hearts and so much joy, we invite you to celebrate the beginning of our forever.",
+            "Somehow, every little moment led us here. With full hearts and so much joy, we invite you to celebrate the beginning of our forever.",
 
 
 
@@ -188,7 +188,7 @@ const weddingConfig = {
                 0.35,
 
             // Couple names
-            fontFamily: '"Great Vibes, serif',
+            fontFamily: '"Allura, serif',
 
             titleColor:
                 "#FFFFFF",

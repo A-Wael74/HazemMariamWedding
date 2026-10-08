@@ -401,7 +401,7 @@ p {
 
 
 .hero-content {
-     font-family: "Great Vibes", cursive;
+     font-family: "Allura", cursive;
     width: 100%;
 
     max-width: 1000px;
@@ -419,7 +419,7 @@ p {
 
 
 .couple-names {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
 
     font-weight: 400;
 
@@ -436,7 +436,7 @@ p {
 
 
 .wedding-date {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     margin-top: 25px;
 }
 
@@ -519,7 +519,7 @@ p {
 .calendar-month {
 
     font-family:
-        "Great Vibes",
+        "Allura",
         cursive;
 
     font-size: 2.8rem;
@@ -731,7 +731,7 @@ p {
 .time-label {
 
     font-family:
-        "Great Vibes",
+        "Allura",
         cursive;
 
     font-size: 2rem;
@@ -903,7 +903,7 @@ p {
 }
 
 .great-vibes-regular {
-  font-family: "Great Vibes", cursive;
+  font-family: "Allura", cursive;
   font-weight: 400;
   font-style: normal;
 }
@@ -1134,7 +1134,7 @@ p {
    ----------------------------------------------------- */
 
 #openInvitation {
-    font-family: "Great Vibes", serif;
+    font-family: "Allura", serif;
     font-size: 2rem;
 }
 
@@ -1146,7 +1146,7 @@ p {
 /* "Wedding Invitation" */
 
 #hero-opening {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
 
     font-size: 1.85rem;
 
@@ -1161,7 +1161,7 @@ p {
 /* Mariam ♥ Hazem */
 
 .couple-names {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     font-size: clamp(4rem, 12vw, 8rem);
 }
 
@@ -1169,7 +1169,7 @@ p {
 /* Wedding date */
 
 #wedding-date {
-    font-family: "Great Vibes", serif;
+    font-family: "Allura", serif;
     font-size: 1.65rem;
 }
 /* Welcome paragraph */
@@ -1187,7 +1187,7 @@ p {
 /* Example: "With Love" */
 
 #welcome-title {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     font-size: 4.5rem;
 }
 
@@ -1209,7 +1209,7 @@ p {
 /* Main title */
 
 #details-title {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     font-size: 4.5rem;
 }
 
@@ -1240,7 +1240,7 @@ p {
 /* "Counting Down..." */
 
 #countdown-title {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     font-size: 4.5rem;
 }
 
@@ -1268,7 +1268,7 @@ p {
 /* "Our Moments" */
 
 #gallery-title {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     font-size: 4.5rem;
 }
 
@@ -1280,7 +1280,7 @@ p {
 /* "Wedding Venue" */
 
 #location-title {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     font-size: 4.5rem;
 }
 
@@ -1308,7 +1308,7 @@ p {
 /* Mariam & Hazem */
 
 #closing-section h2 {
-    font-family: "Great Vibes", cursive;
+    font-family: "Allura", cursive;
     font-size: 5rem;
 }
 
