@@ -1184,7 +1184,7 @@ p {
     font-size: 1.85rem;
 
     /* Change color here */
-    color: #F3DFAD;
+    color: #f3dfad;
 
     /* Move it slightly upward */
     transform: translateY(-15px);
@@ -1204,6 +1204,7 @@ p {
 #wedding-date {
     font-family: "Allura", serif;
     font-size: 1.65rem;
+     color: #f3dfad;
 }
 /* Welcome paragraph */
 

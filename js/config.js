@@ -105,7 +105,7 @@ const weddingConfig = {
 
     images: {
         heroNames:
-            "assets/images/112.png",
+            "assets/images/113.png",
 
 
         gallery: [
@@ -213,11 +213,7 @@ const weddingConfig = {
             // Couple names
             fontFamily: '"Allura, serif',
 
-            titleColor:
-                "#FFFFFF",
-
-            textColor:
-                "#FFFFFF"
+           
         },
 
 
@@ -420,7 +416,7 @@ const weddingConfig = {
     envelope: {
 
         closedImage:
-            "assets/images/closeenL.jpeg",
+            "assets/images/closedfinal.jpeg",
 
         openImage:
             "assets/images/png-open-done.jpeg",
