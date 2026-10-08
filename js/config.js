@@ -480,7 +480,7 @@ const weddingConfig = {
 
     // Image after clicking
     openImage:
-        "assets/images/png-open-done.png",
+        "assets/images/png-open-done.jpeg",
 
     // Envelope size
     width:
