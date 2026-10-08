@@ -719,8 +719,50 @@ function setupLocationButton() {
 /* =====================================================
    ENVELOPE OPENING
    ===================================================== */
+function preloadImage(src) {
 
-function setupEnvelope() {
+    return new Promise(
+        (resolve, reject) => {
+
+            const img =
+                new Image();
+
+            img.onload =
+                async () => {
+
+                    /*
+                     * decode() makes sure the browser
+                     * has actually prepared the image
+                     * for display.
+                     */
+
+                    try {
+
+                        if (img.decode) {
+                            await img.decode();
+                        }
+
+                    } catch (error) {
+
+                        // Image is already loaded,
+                        // so decode failure is not fatal.
+                    }
+
+                    resolve(img);
+                };
+
+
+            img.onerror =
+                reject;
+
+
+            img.src =
+                src;
+        }
+    );
+}
+
+async function setupEnvelope() {
 
     const button =
         document.getElementById(
@@ -747,18 +789,60 @@ function setupEnvelope() {
         weddingConfig.envelope;
 
 
-    /* Preload open envelope */
+    /*
+     * Don't allow opening until the
+     * second image is completely ready.
+     */
 
-    const preload =
-        new Image();
+    button.disabled = true;
 
-    preload.src =
-        config.openImage;
+    button.style.opacity =
+        "0.6";
+
+
+    try {
+
+        await preloadImage(
+            config.openImage
+        );
+
+
+        /*
+         * Open image is now downloaded
+         * AND decoded.
+         */
+
+        button.disabled = false;
+
+        button.style.opacity =
+            "1";
+
+    } catch (error) {
+
+        console.error(
+            "Failed to preload open envelope:",
+            error
+        );
+
+
+        /*
+         * Still allow the invitation
+         * to open if loading failed.
+         */
+
+        button.disabled = false;
+
+        button.style.opacity =
+            "1";
+    }
 
 
     button.addEventListener(
         "click",
         () => {
+
+            button.disabled =
+                true;
 
             button.style.opacity =
                 "0";
@@ -767,14 +851,7 @@ function setupEnvelope() {
                 "none";
 
 
-            /* =========================
-               1. Fade CLOSED envelope out
-               ========================= */
-
-            image.style.setProperty(
-                "--envelope-fade",
-                `${config.swapFadeDuration}ms`
-            );
+            /* 1. Fade closed envelope */
 
             image.classList.add(
                 "swap-out"
@@ -784,23 +861,16 @@ function setupEnvelope() {
             setTimeout(
                 () => {
 
-                    /* =========================
-                       2. Change image WHILE hidden
-                       ========================= */
+                    /*
+                     * 2. Change image.
+                     *
+                     * It is already cached and decoded,
+                     * so it appears immediately.
+                     */
 
                     image.src =
                         config.openImage;
 
-
-                    image.classList.remove(
-                        "opening"
-                    );
-
-
-                    /*
-                     * Force browser to render
-                     * opacity: 0 before fading in.
-                     */
 
                     requestAnimationFrame(
                         () => {
@@ -808,9 +878,7 @@ function setupEnvelope() {
                             requestAnimationFrame(
                                 () => {
 
-                                    /* =========================
-                                       3. Fade OPEN envelope in
-                                       ========================= */
+                                    /* 3. Fade open envelope in */
 
                                     image.classList.remove(
                                         "swap-out"
@@ -821,31 +889,17 @@ function setupEnvelope() {
                                     );
 
 
-                                    /* =========================
-                                       4. Keep it visible
-                                       ========================= */
+                                    /* 4. Hold opened envelope */
 
                                     setTimeout(
                                         () => {
-
-                                            image.style.setProperty(
-                                                "--envelope-fade",
-                                                `${config.finalFadeDuration}ms`
-                                            );
-
-
-                                            /* =========================
-                                               5. Fade OPEN envelope out
-                                               ========================= */
 
                                             image.classList.add(
                                                 "disappear"
                                             );
 
 
-                                            /* =========================
-                                               6. Show invitation
-                                               ========================= */
+                                            /* 5. Show hero */
 
                                             setTimeout(
                                                 () => {
@@ -892,7 +946,6 @@ function setupEnvelope() {
         }
     );
 }
-
 /* =====================================================
    COUNTDOWN
    ===================================================== */
