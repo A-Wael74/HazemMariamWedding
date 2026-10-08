@@ -400,7 +400,7 @@ const weddingConfig = {
     envelope: {
 
         closedImage:
-            "assets/images/envelope-closed.jpeg",
+            "assets/images/closeenL.jpeg",
 
         openImage:
             "assets/images/png-open-done.jpeg",
