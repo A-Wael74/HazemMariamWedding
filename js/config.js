@@ -430,7 +430,7 @@ const weddingConfig = {
 
         // How long opened envelope stays visible
         openHoldDuration:
-           1200,
+           2000,
 
         // Open envelope fade-out before hero
         finalFadeDuration:
