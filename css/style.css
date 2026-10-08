@@ -14,7 +14,7 @@
 
     --text: #51483A;
 
-    --global-font: "Aref Ruqaa", serif;
+    --global-font:"Cormorant Garamond", serif;
 
     --global-title-size: 3rem;
 
@@ -219,7 +219,7 @@ p {
 
     border: 1px solid var(--gold);
 
-    background: var(--gold);
+    background:  #4d2f04;
 
     color: white;
 
@@ -394,7 +394,7 @@ p {
 
 
 .hero-content {
-
+     font-family: "Great Vibes", cursive;
     width: 100%;
 
     max-width: 1000px;
@@ -412,6 +412,7 @@ p {
 
 
 .couple-names {
+    font-family: "Great Vibes", cursive;
 
     font-weight: 400;
 
@@ -428,7 +429,7 @@ p {
 
 
 .wedding-date {
-
+    font-family: "Great Vibes", cursive;
     margin-top: 25px;
 }
 
@@ -467,72 +468,299 @@ p {
    DETAILS
    ===================================================== */
 
-.details {
+/* =====================================================
+   WEDDING DETAILS
+   ===================================================== */
 
-    display: grid;
+.wedding-details-visual {
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    display: flex;
 
-    gap: 25px;
+    justify-content: center;
+    align-items: center;
 
-    margin-top: 40px;
+    gap: 70px;
+
+    margin-top: 35px;
 }
 
 
-.detail-card {
+/* =====================================================
+   CALENDAR
+   ===================================================== */
 
-    padding: 35px 20px;
+.wedding-calendar {
+
+    width: 330px;
+
+    padding: 30px;
 
     border:
         1px solid
-        rgba(220, 196, 135, 0.7);
+        rgba(218, 190, 120, 0.7);
 
     background:
         rgba(255, 255, 255, 0.08);
 
     backdrop-filter:
-        blur(3px);
+        blur(5px);
 
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+    border-radius: 4px;
 }
 
 
-.detail-card:hover {
+.calendar-month {
 
-    transform:
-        translateY(-5px);
+    font-family:
+        "Great Vibes",
+        cursive;
 
-    background:
-        rgba(255, 255, 255, 0.15);
-}
-
-
-.detail-icon {
-
-    display: block;
-
-    color: var(--gold);
-
-    font-size: 2.2rem;
-
-    margin-bottom: 10px;
-}
-
-
-.detail-card h3 {
-
-    font-size: 1.8rem;
+    font-size: 2.8rem;
 
     color: #f3dfad;
 
-    font-weight: 400;
-
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
+
+.calendar-weekdays {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    margin-bottom: 12px;
+}
+
+
+.calendar-weekdays span {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 0.9rem;
+
+    color:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+.calendar-days {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 7px;
+}
+
+
+.calendar-day {
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.1rem;
+
+    color: white;
+}
+
+
+/* Wedding date */
+
+.calendar-day.wedding-day {
+
+    background:
+        var(--gold);
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 0 18px
+        rgba(184, 155, 94, 0.55);
+
+    position: relative;
+}
+
+
+/* Small decorative circle */
+
+.calendar-day.wedding-day::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border:
+        1px solid
+        rgba(243, 223, 173, 0.7);
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   TIME
+   ===================================================== */
+
+.wedding-time {
+
+    min-width: 220px;
+
+    text-align: center;
+}
+
+
+.clock-icon {
+
+    width: 120px;
+
+    height: 120px;
+
+    margin:
+        0 auto 25px;
+
+    border:
+        2px solid
+        var(--gold);
+
+    border-radius: 50%;
+
+    position: relative;
+}
+
+
+/* Hour hand */
+
+.clock-hour {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 30px;
+
+    background:
+        #f3dfad;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform-origin:
+        bottom center;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(240deg);
+}
+
+
+/* Minute hand */
+
+.clock-minute {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 42px;
+
+    background:
+        #f3dfad;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform-origin:
+        bottom center;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(0deg);
+}
+
+
+.clock-center {
+
+    position: absolute;
+
+    width: 9px;
+
+    height: 9px;
+
+    background:
+        var(--gold);
+
+    border-radius: 50%;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+.time-label {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 2rem;
+
+    color: #f3dfad;
+}
+
+
+.time-value {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.45rem;
+
+    color: white;
+
+    margin-top: 5px;
+}
+
+
+.details-venue {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.4rem;
+
+    color: white;
+
+    margin-top: 45px;
+
+    letter-spacing: 1px;
+}
 
 /* =====================================================
    COUNTDOWN
@@ -668,6 +896,11 @@ p {
         rgba(0, 0, 0, 0.2);
 }
 
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* =====================================================
    LOCATION BUTTON
@@ -729,6 +962,32 @@ p {
    ===================================================== */
 
 @media (max-width: 700px) {
+
+    .wedding-details-visual {
+
+    flex-direction: column;
+
+    gap: 45px;
+}
+
+
+.wedding-calendar {
+
+    width: min(
+        330px,
+        92vw
+    );
+
+    padding: 22px;
+}
+
+
+.clock-icon {
+
+    width: 100px;
+
+    height: 100px;
+}
 
     .section {
 
@@ -819,4 +1078,206 @@ p {
             calc(50% - 6px);
     }
 
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   ENVELOPE
+   ----------------------------------------------------- */
+
+#openInvitation {
+    font-family: "Great Vibes", serif;
+    font-size: 2rem;
+}
+
+
+/* -----------------------------------------------------
+   HERO
+   ----------------------------------------------------- */
+
+/* "Wedding Invitation" */
+
+#hero-opening {
+    font-family: "Great Vibes", serif;
+    font-size: 1.65rem;
+}
+
+
+/* Mariam ♥ Hazem */
+
+.couple-names {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(4rem, 12vw, 8rem);
+}
+
+
+/* Wedding date */
+
+#wedding-date {
+    font-family: "Great Vibes", serif;
+    font-size: 1.65rem;
+}
+/* Welcome paragraph */
+
+#welcome-message {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+}
+
+
+/* -----------------------------------------------------
+   WELCOME
+   ----------------------------------------------------- */
+
+/* Example: "With Love" */
+
+#welcome-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+}
+
+
+
+
+/* -----------------------------------------------------
+   STORY
+   ----------------------------------------------------- */
+
+/* "Our Story" */
+
+#story-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+}
+
+
+/* Story paragraph */
+
+#story-text {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.6rem;
+}
+
+
+/* -----------------------------------------------------
+   WEDDING DETAILS
+   ----------------------------------------------------- */
+
+/* Main title */
+
+#details-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+}
+
+
+/* Date / Time / Venue labels */
+
+.detail-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+
+/* Actual date / time / venue */
+
+#detail-date,
+#detail-time,
+#detail-venue {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.4rem;
+}
+
+
+/* -----------------------------------------------------
+   COUNTDOWN
+   ----------------------------------------------------- */
+
+/* "Counting Down..." */
+
+#countdown-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+}
+
+
+/* Countdown numbers */
+
+.countdown span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3.5rem;
+}
+
+
+/* Days / Hours / Minutes / Seconds */
+
+.countdown small {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.2rem;
+}
+
+
+/* -----------------------------------------------------
+   GALLERY
+   ----------------------------------------------------- */
+
+/* "Our Moments" */
+
+#gallery-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+}
+
+
+/* -----------------------------------------------------
+   LOCATION
+   ----------------------------------------------------- */
+
+/* "Wedding Venue" */
+
+#location-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+}
+
+
+/* Venue name */
+
+#location-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.6rem;
+}
+
+
+/* Map button */
+
+#location-button {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.3rem;
+}
+
+
+/* -----------------------------------------------------
+   CLOSING
+   ----------------------------------------------------- */
+
+/* Mariam & Hazem */
+
+#closing-section h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 5rem;
+}
+
+
+/* Final message */
+
+#closing-message {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.7rem;
 }

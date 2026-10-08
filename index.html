@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
 
@@ -23,7 +23,7 @@
     type="image/png"
     href="assets/icons/favicon.png"
     >
-    <!-- Aref Ruqaa -->
+    <!-- Great Vibes -->
 
     <link
         rel="preconnect"
@@ -37,10 +37,10 @@
     >
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
         rel="stylesheet"
     >
-
+    
 
     <link
         rel="stylesheet"
@@ -115,32 +115,29 @@
 
 
             <h1 class="couple-names">
-
-                <span id="bride-name"></span>
+                <span id="groom-name"></span>
 
                 <span class="heart">
                     ♡
                 </span>
 
-                <span id="groom-name"></span>
+                <span id="bride-name"></span>
+                
 
             </h1>
-
 
             <p
                 id="wedding-date"
                 class="wedding-date"
             ></p>
-            <br>
                         <div class="ornament">
                 ✦
             </div>
-            <br>
+
             <p
                 id="welcome-message"
                 class="large-text"
             ></p>
-            <br>
 
             <div class="scroll-indicator">
                 ↓
@@ -167,60 +164,75 @@
             <div class="gold-line"></div>
 
 
-            <div class="details">
+            <div class="wedding-details-visual">
+
+    <!-- Calendar -->
+
+    <div class="wedding-calendar">
+
+        <div
+            id="calendar-month"
+            class="calendar-month"
+        ></div>
+
+        <div class="calendar-weekdays">
+
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+
+        </div>
+
+        <div
+            id="calendar-days"
+            class="calendar-days"
+        ></div>
+
+    </div>
 
 
-                <div class="detail-card">
+    <!-- Time -->
 
-                    <span class="detail-icon">
-                        ◇
-                    </span>
+    <div class="wedding-time">
+        <p
+            id="wedding-time-text"
+            class="time-value"
+        ></p>
 
-                    <h3>
-                        التاريخ
-                    </h3>
+    </div>
 
-                    <p id="detail-date"></p>
-
-                </div>
-
-
-                <div class="detail-card">
-
-                    <span class="detail-icon">
-                        ◷
-                    </span>
-
-                    <h3>
-                        الوقت
-                    </h3>
-
-                    <p id="detail-time"></p>
-
-                </div>
-
-
-                <div class="detail-card">
-
-                    <span class="detail-icon">
-                        ♧
-                    </span>
-
-                    <h3>
-                        المكان
-                    </h3>
-
-                    <p id="detail-venue"></p>
-
-                </div>
-
-
-            </div>
+</div>
 
         </div>
 
     </section>
 
+<!-- =================================================
+         LOCATION
+         ================================================= -->
+
+<section id="location-section" class="section">
+
+    <div class="content">
+
+        <h2 id="location-title"></h2>
+
+
+        <div class="gold-line"></div>
+
+
+        <p id="location-name"></p>
+
+
+        <a id="location-button" class="gold-button" target="_blank" rel="noopener noreferrer"></a>
+
+    </div>
+
+</section>
 
 
     <!-- =================================================
@@ -253,7 +265,7 @@
                     </span>
 
                     <small>
-                        يوم
+                       Days
                     </small>
 
                 </div>
@@ -266,7 +278,7 @@
                     </span>
 
                     <small>
-                        ساعة
+                       Hours
                     </small>
 
                 </div>
@@ -279,7 +291,7 @@
                     </span>
 
                     <small>
-                        دقيقة
+                       Minutes
                     </small>
 
                 </div>
@@ -292,7 +304,7 @@
                     </span>
 
                     <small>
-                        ثانية
+                       Seconds
                     </small>
 
                 </div>
@@ -304,37 +316,6 @@
 
     </section>
 
-
-    <!-- =================================================
-         LOCATION
-         ================================================= -->
-
-    <section
-        id="location-section"
-        class="section"
-    >
-
-        <div class="content">
-
-            <h2 id="location-title"></h2>
-
-
-            <div class="gold-line"></div>
-
-
-            <p id="location-name"></p>
-
-
-            <a
-                id="location-button"
-                class="gold-button"
-                target="_blank"
-                rel="noopener noreferrer"
-            ></a>
-
-        </div>
-
-    </section>
 
     <!-- =================================================
          GALLERY

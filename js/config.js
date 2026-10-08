@@ -5,8 +5,8 @@ const weddingConfig = {
        ===================================================== */
 
     couple: {
-        bride: "مريم",
-        groom: "حازم"
+        bride: "Mariam",
+        groom: "Hazem"
     },
 
 
@@ -25,16 +25,16 @@ const weddingConfig = {
         countdownTime: "20:00:00",
 
         // What guests see
-        displayDate: "٦ نوفمبر ٢٠٢٦",
+        displayDate: "6 november 2026",
 
-        time: "٨:٠٠ مساءً",
+        time: "6:00 PM",
 
         // Change later
-        venue: "اكتب مكان الحفل هنا",
+        venue: "Nile Flori Hall, Corniche El- Maadi",
 
         // Paste Google Maps link here.
         // Leave "" to hide the location button.
-        locationUrl: ""
+        locationUrl: "https://maps.app.goo.gl/jiyKZWMcR37zHkSz8"
     },
 
 
@@ -45,46 +45,43 @@ const weddingConfig = {
     text: {
 
         // Envelope + hero
-        opening: "دعوة زفاف",
+        opening: "Wedding Invitation",
 
-        openButton: "افتح الدعوة",
+        openButton: "Open Invitation",
 
-
-        // Welcome page
-        welcomeTitle: "بكل الحب",
 
         welcome:
-            "بكل الحب والسعادة، يسعدنا أن نشارككم أجمل لحظات حياتنا.",
+            "We Love You",
 
 
         // Story page
-        storyTitle: "حكايتنا",
+        storyTitle: "Our Story",
 
         story:
-            "هنا يمكنك كتابة قصة قصيرة أو بعض الكلمات المميزة عنكما.",
+           "We Love You Story",
 
 
         // Wedding details
-        detailsTitle: "موعدنا",
+        detailsTitle: "Date",
 
 
         // Countdown
-        countdownTitle: "باقي على فرحتنا",
+        countdownTitle: "Countdown",
 
 
         // Gallery
-        galleryTitle: "لحظاتنا",
+        galleryTitle: "Our Moments",
 
 
         // Location
-        locationTitle: "مكان الحفل",
+        locationTitle: "Location",
 
-        locationButton: "الموقع على الخريطة",
+        locationButton: "Location On Maps",
 
 
         // Final page
         closing:
-            "وجودكم معنا يجعل فرحتنا أجمل 🤍"
+            "We're Waiting For You🤍"
     },
 
 
@@ -160,15 +157,15 @@ const weddingConfig = {
         global: {
 
             // Font used everywhere
-            fontFamily: '"Aref Ruqaa", serif',
+           
 
             // Default normal text
             paragraphFontSize:
                 "clamp(1.2rem, 3vw, 1.5rem)",
 
             // Default titles
-            titleFontSize:
-                "clamp(2.8rem, 7vw, 4rem)"
+         //   titleFontSize:
+          //      "clamp(2.8rem, 7vw, 4rem)"
         },
 
 
@@ -197,11 +194,7 @@ const weddingConfig = {
                 0.35,
 
             // Couple names
-            titleFontSize:
-                "clamp(4rem, 12vw, 8rem)",
-
-            textFontSize:
-                "clamp(1.2rem, 3vw, 1.5rem)",
+            fontFamily: '"Great Vibes, serif',
 
             titleColor:
                 "#FFFFFF",
@@ -232,11 +225,6 @@ const weddingConfig = {
             backgroundColor:
                 "#c48d01",
 
-            titleFontSize:
-                "clamp(2.8rem, 7vw, 4rem)",
-
-            textFontSize:
-                "clamp(1.3rem, 3vw, 1.7rem)",
 
             titleColor:
                 "#F3DFAD",
@@ -270,15 +258,9 @@ const weddingConfig = {
                 "#E8DDC7",
 
             // Size of حكايتنا
-            titleFontSize:
-                "clamp(3rem, 8vw, 4.5rem)",
-
-            // Size of story text
-            textFontSize:
-                "clamp(1.3rem, 3vw, 1.7rem)",
 
             fontFamily:
-                '"Aref Ruqaa", serif',
+                '"Great Vibes", serif',
 
             titleColor:
                 "#F3DFAD",
@@ -309,11 +291,6 @@ const weddingConfig = {
             backgroundColor:
                 "#F8F4EA",
 
-            titleFontSize:
-                "clamp(2.8rem, 7vw, 4rem)",
-
-            textFontSize:
-                "clamp(1.2rem, 3vw, 1.5rem)",
 
             titleColor:
                 "#F3DFAD",
@@ -344,13 +321,8 @@ const weddingConfig = {
             backgroundColor:
                 "#E8DDC7",
 
-            titleFontSize:
-                "clamp(2.8rem, 7vw, 4rem)",
-
             // Size of countdown numbers
-            counterFontSize:
-                "clamp(2rem, 7vw, 4rem)",
-
+         
             titleColor:
                 "#F3DFAD",
 
@@ -379,9 +351,6 @@ const weddingConfig = {
 
             backgroundColor:
                 "#F8F4EA",
-
-            titleFontSize:
-                "clamp(2.8rem, 7vw, 4rem)",
 
             titleColor:
                 "#F3DFAD",
@@ -424,11 +393,6 @@ const weddingConfig = {
             backgroundColor:
                 "#F8F4EA",
 
-            titleFontSize:
-                "clamp(2.8rem, 7vw, 4rem)",
-
-            textFontSize:
-                "clamp(1.3rem, 3vw, 1.6rem)",
 
             titleColor:
                 "#F3DFAD",
@@ -459,11 +423,7 @@ const weddingConfig = {
             backgroundColor:
                 "#E8DDC7",
 
-            titleFontSize:
-                "clamp(3rem, 8vw, 4.5rem)",
-
-            textFontSize:
-                "clamp(1.3rem, 3vw, 1.7rem)",
+        
 
             titleColor:
                 "#F3DFAD",

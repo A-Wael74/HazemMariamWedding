@@ -206,23 +206,19 @@ if (envelopeImage) {
         config.text.detailsTitle
     );
 
-
-    setText(
-        "detail-date",
-        config.wedding.displayDate
-    );
-
-
-    setText(
-        "detail-time",
-        config.wedding.time
-    );
+setText(
+    "wedding-time-text",
+    config.wedding.time
+);
 
 
-    setText(
-        "detail-venue",
-        config.wedding.venue
-    );
+setText(
+    "details-venue",
+    config.wedding.venue
+);
+
+
+buildWeddingCalendar();
 
 
     /* =============================================
@@ -295,7 +291,152 @@ if (envelopeImage) {
     );
 }
 
+function buildWeddingCalendar() {
 
+    const dateString =
+        weddingConfig.wedding.date;
+
+
+    /* Convert YYYY-MM-DD */
+
+    const [
+        year,
+        month,
+        weddingDay
+    ] =
+        dateString
+            .split("-")
+            .map(Number);
+
+
+    const monthIndex =
+        month - 1;
+
+
+    const monthTitle =
+        document.getElementById(
+            "calendar-month"
+        );
+
+
+    const calendarDays =
+        document.getElementById(
+            "calendar-days"
+        );
+
+
+    if (
+        !monthTitle ||
+        !calendarDays
+    ) {
+
+        return;
+    }
+
+
+    /* Month name */
+
+    const weddingDate =
+        new Date(
+            year,
+            monthIndex,
+            weddingDay
+        );
+
+
+    monthTitle.textContent =
+        weddingDate.toLocaleDateString(
+            "en-US",
+            {
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    /* Remove previous calendar */
+
+    calendarDays.innerHTML =
+        "";
+
+
+    /* First weekday of month */
+
+    const firstDay =
+        new Date(
+            year,
+            monthIndex,
+            1
+        ).getDay();
+
+
+    /* Days in month */
+
+    const daysInMonth =
+        new Date(
+            year,
+            month,
+            0
+        ).getDate();
+
+
+    /* Empty cells before day 1 */
+
+    for (
+        let i = 0;
+        i < firstDay;
+        i++
+    ) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+
+        calendarDays.appendChild(
+            empty
+        );
+    }
+
+
+    /* Actual days */
+
+    for (
+        let day = 1;
+        day <= daysInMonth;
+        day++
+    ) {
+
+        const dayElement =
+            document.createElement(
+                "div"
+            );
+
+
+        dayElement.className =
+            "calendar-day";
+
+
+        dayElement.textContent =
+            day;
+
+
+        if (
+            day === weddingDay
+        ) {
+
+            dayElement.classList.add(
+                "wedding-day"
+            );
+        }
+
+
+        calendarDays.appendChild(
+            dayElement
+        );
+    }
+}
 /* =====================================================
    HELPER FOR TEXT
    ===================================================== */
@@ -435,13 +576,6 @@ function setupSection(
 
     /* Section-specific font */
 
-    if (config.fontFamily) {
-
-        section.style.fontFamily =
-            config.fontFamily;
-    }
-
-
     /* Title */
 
     const title =
@@ -452,11 +586,7 @@ function setupSection(
 
     if (title) {
 
-        if (config.titleFontSize) {
-
-            title.style.fontSize =
-                config.titleFontSize;
-        }
+    
 
 
         if (config.titleColor) {
@@ -475,13 +605,6 @@ function setupSection(
         )
         .forEach(
             text => {
-
-                if (config.textFontSize) {
-
-                    text.style.fontSize =
-                        config.textFontSize;
-                }
-
 
                 if (config.textColor) {
 
