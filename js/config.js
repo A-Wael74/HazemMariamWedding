@@ -112,7 +112,7 @@ const weddingConfig = {
             "assets/images/4-.jpg.jpeg",
             "assets/images/3-.jpg.jpeg",
             "assets/images/2-.jpg.jpeg",
-            "assets/images/1-.jpg.jpeg",
+            "assets/images/5.jpeg",
         ]
     },
 
