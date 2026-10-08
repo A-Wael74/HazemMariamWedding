@@ -418,20 +418,38 @@ p {
 }
 
 
-.couple-names {
-    font-family: "Allura", cursive;
+/* =====================================================
+   HERO NAMES IMAGE
+   ===================================================== */
 
-    font-weight: 400;
+.hero-image-wrapper {
 
-    line-height: 1.2;
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin:
+        10px auto 20px;
 }
 
 
-.heart {
+.hero-names-image {
 
-    color: #dfc68c;
+    display: block;
 
-    margin: 0 20px;
+    width: min(75vw, 500px);
+
+    max-height: 32vh;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    margin: 0 auto;
 }
 
 
@@ -1001,6 +1019,21 @@ p {
    ===================================================== */
 
 @media (max-width: 700px) {
+    .hero-image-wrapper {
+
+    margin:
+        5px auto 15px;
+}
+
+
+.hero-names-image {
+
+    width: 82vw;
+
+    max-width: 360px;
+
+    max-height: 28vh;
+}
     
     .closing .content {
     transform: translateY(-130px);

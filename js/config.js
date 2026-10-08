@@ -84,6 +84,9 @@ const weddingConfig = {
        ===================================================== */
 
     images: {
+        heroNames:
+            "assets/images/112.png",
+
 
         gallery: [
             "assets/images/4-.jpg.jpeg",

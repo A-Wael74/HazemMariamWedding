@@ -147,17 +147,16 @@ if (envelopeImage) {
     );
 
 
-    setText(
-        "bride-name",
-        config.couple.bride
-    );
+    const heroNamesImage =
+        document.getElementById(
+            "hero-names-image"
+        );
 
+    if (heroNamesImage) {
 
-    setText(
-        "groom-name",
-        config.couple.groom
-    );
-
+        heroNamesImage.src =
+            config.images.heroNames;
+    }
 
     setText(
         "wedding-date",
@@ -451,7 +450,7 @@ function setupAllSections() {
     setupSection(
         "hero",
         ui.hero,
-        ".couple-names",
+        "#hero-opening",
         ".wedding-date"
     );
 
