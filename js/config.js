@@ -426,7 +426,7 @@ const weddingConfig = {
 
         // Closed envelope fade-out
         swapFadeDuration:
-            400,
+            800,
 
         // How long opened envelope stays visible
         openHoldDuration:
@@ -434,6 +434,6 @@ const weddingConfig = {
 
         // Open envelope fade-out before hero
         finalFadeDuration:
-            400
+            800
     }
 };
