@@ -36,8 +36,6 @@
 html {
 
     scroll-behavior: smooth;
-
-    scroll-snap-type: y proximity;
 }
 
 
@@ -173,9 +171,11 @@ p {
 
     display: block;
 
+    opacity: 1;
+
     transition:
-        transform 1s ease,
-        opacity 0.5s ease;
+        opacity var(--envelope-fade, 400ms) ease,
+        transform var(--envelope-fade, 400ms) ease;
 
     filter:
         drop-shadow(
@@ -185,25 +185,34 @@ p {
 }
 
 
-/* When envelope is clicked */
+/* Completely hide current image */
 
-.envelope-image.opening {
+.envelope-image.swap-out {
 
-    transform:
-        scale(1.08);
+    opacity: 0;
+
+    transform: scale(0.98);
 }
 
 
-/* Fade envelope before invitation appears */
+/* Open envelope visible state */
+
+.envelope-image.opening {
+
+    opacity: 1;
+
+    transform: scale(1.08);
+}
+
+
+/* Final fade to invitation */
 
 .envelope-image.disappear {
 
     opacity: 0;
 
-    transform:
-        scale(1.15);
+    transform: scale(1.15);
 }
-
 
 
 
@@ -251,7 +260,7 @@ p {
 
 .section {
 
-    min-height: 100vh;
+    min-height: auto;
 
     display: flex;
 
@@ -261,9 +270,7 @@ p {
 
     text-align: center;
 
-    padding: 80px 25px;
-
-    scroll-snap-align: start;
+    padding: 70px 25px;
 
     background: transparent;
 }
@@ -739,7 +746,7 @@ p {
         "Cormorant Garamond",
         serif;
 
-    font-size: 1.45rem;
+    font-size: 2.2rem;
 
     color: white;
 
@@ -828,7 +835,7 @@ p {
 
 .gallery-section {
 
-    min-height: 100vh;
+    min-height: auto;
 
     display: flex;
 
@@ -838,9 +845,8 @@ p {
 
     text-align: center;
 
-    padding: 100px 25px;
+    padding:  60px 25px 15px;
 
-    scroll-snap-align: start;
 
     background: transparent;
 }
@@ -951,17 +957,52 @@ p {
    CLOSING
    ===================================================== */
 
-.closing {
+.gallery-closing {
 
-    min-height: 80vh;
+    margin-top: 45px;
+
+    text-align: center;
 }
 
+
+.gallery-closing .ornament {
+
+    margin-bottom: 20px;
+}
+
+
+#closing-message {
+
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1.7rem;
+
+    line-height: 1.8;
+}
+
+
+.closing-line {
+
+    margin-top: 25px;
+
+    margin-bottom: 0;
+}
 
 /* =====================================================
    MOBILE
    ===================================================== */
 
 @media (max-width: 700px) {
+    
+    .closing .content {
+    transform: translateY(-130px);
+}
 
     .wedding-details-visual {
 
@@ -1103,8 +1144,15 @@ p {
 /* "Wedding Invitation" */
 
 #hero-opening {
-    font-family: "Great Vibes", serif;
-    font-size: 1.65rem;
+    font-family: "Great Vibes", cursive;
+
+    font-size: 1.85rem;
+
+    /* Change color here */
+    color: #F3DFAD;
+
+    /* Move it slightly upward */
+    transform: translateY(-15px);
 }
 
 
@@ -1126,7 +1174,7 @@ p {
 
 #welcome-message {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 
@@ -1150,18 +1198,6 @@ p {
 
 /* "Our Story" */
 
-#story-title {
-    font-family: "Great Vibes", cursive;
-    font-size: 4.5rem;
-}
-
-
-/* Story paragraph */
-
-#story-text {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 1.6rem;
-}
 
 
 /* -----------------------------------------------------
@@ -1279,5 +1315,5 @@ p {
 
 #closing-message {
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
 }

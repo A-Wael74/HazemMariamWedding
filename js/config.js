@@ -51,14 +51,8 @@ const weddingConfig = {
 
 
         welcome:
-            "We Love You",
+            "Somehow, every little moment led us here, With full hearts and so much joy, we invite you to celebrate the beginning of our forever.",
 
-
-        // Story page
-        storyTitle: "Our Story",
-
-        story:
-           "We Love You Story",
 
 
         // Wedding details
@@ -81,7 +75,7 @@ const weddingConfig = {
 
         // Final page
         closing:
-            "We're Waiting For You🤍"
+            "We’ll be waiting for you to make this night even more special. Send the sweetest bedtime wishes to your little ones.🤍"
     },
 
 
@@ -92,10 +86,10 @@ const weddingConfig = {
     images: {
 
         gallery: [
-            "assets/images/bckblur.jpeg",
-            "assets/images/photo2.jpg",
-            "assets/images/photo3.jpg",
-            "assets/images/photo4.jpg",
+            "assets/images/4-.jpg.jpeg",
+            "assets/images/3-.jpg.jpeg",
+            "assets/images/2-.jpg.jpeg",
+            "assets/images/1-.jpg.jpeg",
         ]
     },
 
@@ -237,38 +231,6 @@ const weddingConfig = {
         /* =================================================
            STORY PAGE - حكايتنا
            ================================================= */
-
-        story: {
-
-            backgroundImage:
-                "assets/images/bckblur.jpeg",
-
-            backgroundPosition:
-                "center",
-
-            // Change this to control blur
-            backgroundBlur:
-                "6px",
-
-            // Change this to control darkness
-            overlayOpacity:
-                0.6,
-
-            backgroundColor:
-                "#E8DDC7",
-
-            // Size of حكايتنا
-
-            fontFamily:
-                '"Great Vibes", serif',
-
-            titleColor:
-                "#F3DFAD",
-
-            textColor:
-                "#FFFAF0"
-        },
-
 
         /* =================================================
            WEDDING DETAILS PAGE
@@ -434,24 +396,25 @@ const weddingConfig = {
     },
     envelope: {
 
-    // Image before opening
-    closedImage:
-        "assets/images/envelope-closed.jpeg",
+        closedImage:
+            "assets/images/envelope-closed.jpeg",
 
-    // Image after clicking
-    openImage:
-        "assets/images/png-open-done.jpeg",
+        openImage:
+            "assets/images/png-open-done.jpeg",
 
-    // Envelope size
-    width:
-        "380px",
+        width:
+            "380px",
 
-    // Opening animation duration
-    animationDuration:
-        2000,
+        // Closed envelope fade-out
+        swapFadeDuration:
+            400,
 
-    // Text shown above/below envelope
-    buttonText:
-        "افتح الدعوة"
-}
+        // How long opened envelope stays visible
+        openHoldDuration:
+           1200,
+
+        // Open envelope fade-out before hero
+        finalFadeDuration:
+            400
+    }
 };

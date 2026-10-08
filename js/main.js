@@ -185,16 +185,6 @@ if (envelopeImage) {
        Story
        ============================================= */
 
-    setText(
-        "story-title",
-        config.text.storyTitle
-    );
-
-
-    setText(
-        "story-text",
-        config.text.story
-    );
 
 
     /* =============================================
@@ -272,18 +262,6 @@ buildWeddingCalendar();
     /* =============================================
        Closing
        ============================================= */
-
-    setText(
-        "closing-bride",
-        config.couple.bride
-    );
-
-
-    setText(
-        "closing-groom",
-        config.couple.groom
-    );
-
 
     setText(
         "closing-message",
@@ -474,19 +452,13 @@ function setupAllSections() {
         "hero",
         ui.hero,
         ".couple-names",
-        ".small-title, .wedding-date"
+        ".wedding-date"
     );
 
 
     setupSection(
         "welcome-section",
         ui.welcome
-    );
-
-
-    setupSection(
-        "story-section",
-        ui.story
     );
 
 
@@ -511,12 +483,6 @@ function setupAllSections() {
     setupSection(
         "location-section",
         ui.location
-    );
-
-
-    setupSection(
-        "closing-section",
-        ui.closing
     );
 
 
@@ -761,12 +727,10 @@ function setupEnvelope() {
             "openInvitation"
         );
 
-
     const image =
         document.getElementById(
             "envelope-image"
         );
-
 
     const screen =
         document.getElementById(
@@ -774,37 +738,27 @@ function setupEnvelope() {
         );
 
 
-    if (
-        !button ||
-        !image ||
-        !screen
-    ) {
-
+    if (!button || !image || !screen) {
         return;
     }
+
+
+    const config =
+        weddingConfig.envelope;
+
+
+    /* Preload open envelope */
+
+    const preload =
+        new Image();
+
+    preload.src =
+        config.openImage;
 
 
     button.addEventListener(
         "click",
         () => {
-
-            /* Start small zoom */
-
-            image.classList.add(
-                "opening"
-            );
-
-
-            /* Change closed envelope
-               to open envelope */
-
-            image.src =
-                weddingConfig
-                    .envelope
-                    .openImage;
-
-
-            /* Hide button */
 
             button.style.opacity =
                 "0";
@@ -813,51 +767,126 @@ function setupEnvelope() {
                 "none";
 
 
-            /* Start fading envelope */
+            /* =========================
+               1. Fade CLOSED envelope out
+               ========================= */
 
-            setTimeout(
-                () => {
+            image.style.setProperty(
+                "--envelope-fade",
+                `${config.swapFadeDuration}ms`
+            );
 
-                    image.classList.add(
-                        "disappear"
-                    );
-
-                },
-                weddingConfig
-                    .envelope
-                    .animationDuration -
-                400
+            image.classList.add(
+                "swap-out"
             );
 
 
-            /* Show invitation */
-
             setTimeout(
                 () => {
 
-                    screen.classList.add(
-                        "hide"
+                    /* =========================
+                       2. Change image WHILE hidden
+                       ========================= */
+
+                    image.src =
+                        config.openImage;
+
+
+                    image.classList.remove(
+                        "opening"
                     );
 
 
-                    const hero =
-                        document.getElementById(
-                            "hero"
-                        );
+                    /*
+                     * Force browser to render
+                     * opacity: 0 before fading in.
+                     */
+
+                    requestAnimationFrame(
+                        () => {
+
+                            requestAnimationFrame(
+                                () => {
+
+                                    /* =========================
+                                       3. Fade OPEN envelope in
+                                       ========================= */
+
+                                    image.classList.remove(
+                                        "swap-out"
+                                    );
+
+                                    image.classList.add(
+                                        "opening"
+                                    );
 
 
-                    if (hero) {
+                                    /* =========================
+                                       4. Keep it visible
+                                       ========================= */
 
-                        hero.classList.add(
-                            "in-view"
-                        );
-                    }
+                                    setTimeout(
+                                        () => {
+
+                                            image.style.setProperty(
+                                                "--envelope-fade",
+                                                `${config.finalFadeDuration}ms`
+                                            );
+
+
+                                            /* =========================
+                                               5. Fade OPEN envelope out
+                                               ========================= */
+
+                                            image.classList.add(
+                                                "disappear"
+                                            );
+
+
+                                            /* =========================
+                                               6. Show invitation
+                                               ========================= */
+
+                                            setTimeout(
+                                                () => {
+
+                                                    screen.classList.add(
+                                                        "hide"
+                                                    );
+
+
+                                                    const hero =
+                                                        document.getElementById(
+                                                            "hero"
+                                                        );
+
+
+                                                    if (hero) {
+
+                                                        hero.classList.add(
+                                                            "in-view"
+                                                        );
+                                                    }
+
+                                                },
+
+                                                config.finalFadeDuration
+                                            );
+
+                                        },
+
+                                        config.openHoldDuration
+                                    );
+
+                                }
+                            );
+
+                        }
+                    );
 
                 },
 
-                weddingConfig
-                    .envelope
-                    .animationDuration
+                config.swapFadeDuration
             );
 
         }
