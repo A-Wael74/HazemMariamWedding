@@ -1151,15 +1151,24 @@ function setupAudio() {
             "wedding-audio"
         );
 
+
+    const button =
+        document.getElementById(
+            "audio-control"
+        );
+
+
     const config =
         weddingConfig.audio;
 
 
     if (
         !audio ||
+        !button ||
         !config ||
         !config.enabled
     ) {
+
         return;
     }
 
@@ -1167,11 +1176,122 @@ function setupAudio() {
     audio.src =
         config.src;
 
+
     audio.volume =
         config.volume ?? 0.6;
+
 
     audio.loop =
         config.loop ?? true;
 
+
     audio.load();
+
+
+    let audioStarted =
+        false;
+
+
+    /* =============================================
+       UPDATE BUTTON ICON
+       ============================================= */
+
+    function updateAudioButton() {
+
+        if (!audioStarted) {
+            return;
+        }
+
+
+        button.classList.add(
+            "visible"
+        );
+
+
+        if (audio.paused) {
+
+            button.textContent =
+                "▶";
+
+            button.setAttribute(
+                "aria-label",
+                "Play music"
+            );
+
+            button.title =
+                "Play music";
+
+        } else {
+
+            button.textContent =
+                "❚❚";
+
+            button.setAttribute(
+                "aria-label",
+                "Pause music"
+            );
+
+            button.title =
+                "Pause music";
+        }
+    }
+
+
+    /* =============================================
+       USER PRESSES BUTTON
+       ============================================= */
+
+    button.addEventListener(
+        "click",
+        async () => {
+
+            if (audio.paused) {
+
+                try {
+
+                    await audio.play();
+
+                } catch (error) {
+
+                    console.log(
+                        "Audio playback failed:",
+                        error
+                    );
+                }
+
+            } else {
+
+                audio.pause();
+            }
+
+        }
+    );
+
+
+    /* =============================================
+       AUDIO STATE EVENTS
+       ============================================= */
+
+    audio.addEventListener(
+        "play",
+        () => {
+
+            audioStarted =
+                true;
+
+            updateAudioButton();
+        }
+    );
+
+
+    audio.addEventListener(
+        "pause",
+        updateAudioButton
+    );
+
+
+    audio.addEventListener(
+        "ended",
+        updateAudioButton
+    );
 }

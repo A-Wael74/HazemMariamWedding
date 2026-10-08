@@ -1371,3 +1371,103 @@ p {
 
     animation: bounce 2s infinite;
 }
+
+
+/* =====================================================
+   FIXED AUDIO CONTROL
+   ===================================================== */
+
+.audio-control {
+
+    position: fixed;
+
+    left: 18px;
+
+    bottom:
+        max(
+            18px,
+            env(safe-area-inset-bottom)
+        );
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid var(--gold);
+
+    background:
+        rgba(77, 47, 4, 0.72);
+
+    color:
+        #F3DFAD;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.audio-control.visible {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+}
+
+
+.audio-control:hover {
+
+    background:
+        rgba(184, 155, 94, 0.8);
+}
+
+
+@media (max-width: 700px) {
+
+    .audio-control {
+
+        width: 44px;
+        height: 44px;
+
+        left: 14px;
+
+        bottom:
+            max(
+                14px,
+                env(safe-area-inset-bottom)
+            );
+    }
+}
