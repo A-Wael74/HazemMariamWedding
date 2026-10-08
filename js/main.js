@@ -9,6 +9,7 @@ document.addEventListener(
         applyTheme();
 
         applyGlobalStyle();
+        setupMainBackground();
 
         loadContent();
 
@@ -114,23 +115,20 @@ function loadContent() {
     /* =============================================
        Envelope
        ============================================= */
-
-    setText(
-        "envelope-opening",
-        config.text.opening
+const envelopeImage =
+    document.getElementById(
+        "envelope-image"
     );
 
 
-    setText(
-        "envelope-bride",
-        config.couple.bride
-    );
+if (envelopeImage) {
 
+    envelopeImage.src =
+        config.envelope.closedImage;
 
-    setText(
-        "envelope-groom",
-        config.couple.groom
-    );
+    envelopeImage.style.width =
+        config.envelope.width;
+}
 
 
     setText(
@@ -421,109 +419,21 @@ function setupSection(
 ) {
 
     const section =
-        document.getElementById(sectionId);
+        document.getElementById(
+            sectionId
+        );
 
 
-    if (!section || !config) {
+    if (
+        !section ||
+        !config
+    ) {
+
         return;
     }
 
 
-    /* =============================================
-       CREATE BACKGROUND IMAGE LAYER
-       ============================================= */
-
-    let background =
-        section.querySelector(".section-background");
-
-
-    if (!background) {
-
-        background =
-            document.createElement("div");
-
-        background.className =
-            "section-background";
-
-        section.prepend(background);
-    }
-
-
-    /* =============================================
-       CREATE OVERLAY LAYER
-       ============================================= */
-
-    let overlay =
-        section.querySelector(".section-overlay");
-
-
-    if (!overlay) {
-
-        overlay =
-            document.createElement("div");
-
-        overlay.className =
-            "section-overlay";
-
-        background.after(overlay);
-    }
-
-
-    /* =============================================
-       BACKGROUND IMAGE
-       ============================================= */
-
-    if (config.backgroundImage) {
-
-        background.style.backgroundImage =
-            `url("${config.backgroundImage}")`;
-
-    } else {
-
-        background.style.backgroundImage =
-            "none";
-    }
-
-
-    background.style.backgroundPosition =
-        config.backgroundPosition || "center";
-
-
-    /* =============================================
-       BLUR
-       ============================================= */
-
-    background.style.filter =
-        `blur(${config.backgroundBlur || "0px"})`;
-
-
-    /* =============================================
-       OVERLAY
-       ============================================= */
-
-    overlay.style.background =
-        `rgba(
-            40,
-            30,
-            20,
-            ${config.overlayOpacity ?? 0}
-        )`;
-
-
-    /* =============================================
-       FALLBACK BACKGROUND COLOR
-       ============================================= */
-
-    if (config.backgroundColor) {
-
-        section.style.backgroundColor =
-            config.backgroundColor;
-    }
-
-
-    /* =============================================
-       FONT
-       ============================================= */
+    /* Section-specific font */
 
     if (config.fontFamily) {
 
@@ -532,12 +442,12 @@ function setupSection(
     }
 
 
-    /* =============================================
-       TITLE
-       ============================================= */
+    /* Title */
 
     const title =
-        section.querySelector(titleSelector);
+        section.querySelector(
+            titleSelector
+        );
 
 
     if (title) {
@@ -557,27 +467,29 @@ function setupSection(
     }
 
 
-    /* =============================================
-       TEXT
-       ============================================= */
+    /* Text */
 
     section
-        .querySelectorAll(textSelector)
-        .forEach(text => {
+        .querySelectorAll(
+            textSelector
+        )
+        .forEach(
+            text => {
 
-            if (config.textFontSize) {
+                if (config.textFontSize) {
 
-                text.style.fontSize =
-                    config.textFontSize;
+                    text.style.fontSize =
+                        config.textFontSize;
+                }
+
+
+                if (config.textColor) {
+
+                    text.style.color =
+                        config.textColor;
+                }
             }
-
-
-            if (config.textColor) {
-
-                text.style.color =
-                    config.textColor;
-            }
-        });
+        );
 }
 
 /* =====================================================
@@ -727,9 +639,9 @@ function setupEnvelope() {
         );
 
 
-    const envelope =
-        document.querySelector(
-            ".envelope"
+    const image =
+        document.getElementById(
+            "envelope-image"
         );
 
 
@@ -741,7 +653,7 @@ function setupEnvelope() {
 
     if (
         !button ||
-        !envelope ||
+        !image ||
         !screen
     ) {
 
@@ -753,18 +665,49 @@ function setupEnvelope() {
         "click",
         () => {
 
-            envelope.classList.add(
-                "open"
+            /* Start small zoom */
+
+            image.classList.add(
+                "opening"
             );
 
+
+            /* Change closed envelope
+               to open envelope */
+
+            image.src =
+                weddingConfig
+                    .envelope
+                    .openImage;
+
+
+            /* Hide button */
 
             button.style.opacity =
                 "0";
 
-
             button.style.pointerEvents =
                 "none";
 
+
+            /* Start fading envelope */
+
+            setTimeout(
+                () => {
+
+                    image.classList.add(
+                        "disappear"
+                    );
+
+                },
+                weddingConfig
+                    .envelope
+                    .animationDuration -
+                400
+            );
+
+
+            /* Show invitation */
 
             setTimeout(
                 () => {
@@ -774,20 +717,29 @@ function setupEnvelope() {
                     );
 
 
-                    window.scrollTo(
-                        {
-                            top: 0,
-                            behavior: "smooth"
-                        }
-                    );
+                    const hero =
+                        document.getElementById(
+                            "hero"
+                        );
+
+
+                    if (hero) {
+
+                        hero.classList.add(
+                            "in-view"
+                        );
+                    }
 
                 },
-                1000
+
+                weddingConfig
+                    .envelope
+                    .animationDuration
             );
+
         }
     );
 }
-
 
 /* =====================================================
    COUNTDOWN
@@ -905,5 +857,63 @@ function setupCountdown() {
     setInterval(
         updateCountdown,
         1000
+    );
+}
+
+function setupMainBackground() {
+
+    const config =
+        weddingConfig.ui.background;
+
+
+    const background =
+        document.getElementById(
+            "invitation-background"
+        );
+
+
+    const overlay =
+        document.getElementById(
+            "invitation-background-overlay"
+        );
+
+
+    if (
+        !config ||
+        !background ||
+        !overlay
+    ) {
+
+        return;
+    }
+
+
+    /* Background image */
+
+    background.style.backgroundImage =
+        `url("${config.image}")`;
+
+
+    /* Image position */
+
+    background.style.setProperty(
+        "--main-bg-position",
+        config.position || "center"
+    );
+
+
+    /* Blur */
+
+    background.style.setProperty(
+        "--main-bg-blur",
+        config.blur || "0px"
+    );
+
+
+    /* Overlay darkness */
+
+    overlay.style.setProperty(
+        "--main-bg-overlay",
+        config.overlayOpacity ?? 0.45
     );
 }

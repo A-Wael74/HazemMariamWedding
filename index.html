@@ -56,34 +56,20 @@
 <!-- =====================================================
      ENVELOPE
      ===================================================== -->
-
 <section id="envelope-screen">
 
     <div class="envelope-wrapper">
 
-        <div class="envelope">
+        <div class="envelope-image-wrapper">
 
-            <div class="envelope-flap"></div>
-
-
-            <div class="envelope-card">
-
-                <p id="envelope-opening"></p>
-
-                <h1>
-
-                    <span id="envelope-bride"></span>
-
-                    <span class="and">&</span>
-
-                    <span id="envelope-groom"></span>
-
-                </h1>
-
-            </div>
+            <img
+                id="envelope-image"
+                class="envelope-image"
+                src=""
+                alt="دعوة الزفاف"
+            >
 
         </div>
-
 
         <button id="openInvitation"></button>
 
@@ -91,8 +77,19 @@
 
 </section>
 
+<!-- =========================================
+     FIXED INVITATION BACKGROUND
+     ========================================= -->
 
+<div
+    id="invitation-background"
+    aria-hidden="true"
+></div>
 
+<div
+    id="invitation-background-overlay"
+    aria-hidden="true"
+></div>
 <!-- =====================================================
      MAIN INVITATION
      ===================================================== -->
@@ -106,7 +103,7 @@
 
     <section
         id="hero"
-        class="section hero blur-bg-section"
+        class="section hero"
     >
 
         <div class="hero-content">
@@ -152,7 +149,7 @@
 
     <section
         id="welcome-section"
-        class="section blur-bg-section"
+        class="section"
     >
 
         <div class="content">
@@ -179,29 +176,6 @@
 
 
 
-    <!-- =================================================
-         STORY
-         ================================================= -->
-
-    <section
-        id="story-section"
-        class="section blur-bg-section"
-    >
-
-        <div class="content">
-
-            <h2 id="story-title"></h2>
-
-
-            <div class="gold-line"></div>
-
-
-            <p id="story-text"></p>
-
-        </div>
-
-    </section>
-
 
 
     <!-- =================================================
@@ -210,7 +184,7 @@
 
     <section
         id="details-section"
-        class="section blur-bg-section"
+        class="section"
     >
 
         <div class="content">
@@ -283,7 +257,7 @@
 
     <section
         id="countdown-section"
-        class="section blur-bg-section"
+        class="section "
     >
 
         <div class="content">
@@ -359,42 +333,13 @@
     </section>
 
 
-
-    <!-- =================================================
-         GALLERY
-         ================================================= -->
-
-    <section
-        id="gallery-section"
-        class="gallery-section blur-bg-section"
-    >
-
-        <div class="content">
-
-            <h2 id="gallery-title"></h2>
-
-
-            <div class="gold-line"></div>
-
-
-            <div
-                id="gallery"
-                class="gallery"
-            ></div>
-
-        </div>
-
-    </section>
-
-
-
     <!-- =================================================
          LOCATION
          ================================================= -->
 
     <section
         id="location-section"
-        class="section blur-bg-section"
+        class="section"
     >
 
         <div class="content">
@@ -419,6 +364,58 @@
 
     </section>
 
+    <!-- =================================================
+         GALLERY
+         ================================================= -->
+
+    <section
+        id="gallery-section"
+        class="gallery-section"
+    >
+
+        <div class="content">
+
+            <h2 id="gallery-title"></h2>
+
+
+            <div class="gold-line"></div>
+
+
+            <div
+                id="gallery"
+                class="gallery"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- =================================================
+         STORY
+         ================================================= -->
+
+<section
+    id="story-section"
+    class="section"
+>
+
+        <div class="content">
+
+            <h2 id="story-title"></h2>
+
+
+            <div class="gold-line"></div>
+
+
+            <p id="story-text"></p>
+
+        </div>
+
+    </section>
+
 
 
     <!-- =================================================
@@ -427,7 +424,7 @@
 
     <section
         id="closing-section"
-        class="section closing blur-bg-section"
+        class="section closing"
     >
 
         <div class="content">

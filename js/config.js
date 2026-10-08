@@ -99,12 +99,6 @@ const weddingConfig = {
             "assets/images/photo2.jpg",
             "assets/images/photo3.jpg",
             "assets/images/photo4.jpg",
-            "assets/images/photo5.jpg",
-            "assets/images/photo6.jpg",
-            "assets/images/photo7.jpg",
-            "assets/images/photo8.jpg",
-            "assets/images/photo9.jpg",
-            "assets/images/photo10.jpg"
         ]
     },
 
@@ -135,6 +129,29 @@ const weddingConfig = {
 
     ui: {
 
+         /* =========================================
+       MAIN INVITATION BACKGROUND
+       ========================================= */
+
+    background: {
+
+        // One image used behind all invitation content
+        image:
+            "assets/images/bck.jpg",
+
+        // center / top / bottom
+        position:
+            "center",
+
+        // Blur strength
+        blur:
+            "7px",
+
+        // 0 = bright image
+        // 1 = very dark
+        overlayOpacity:
+            0.45
+    },
 
         /* =================================================
            GLOBAL WEBSITE STYLE
@@ -371,7 +388,7 @@ const weddingConfig = {
 
             // Desktop gallery columns
             columns:
-                3,
+                2,
 
             // Space between photos
             gap:
@@ -454,5 +471,27 @@ const weddingConfig = {
             textColor:
                 "#FFFFFF"
         }
-    }
+    },
+    envelope: {
+
+    // Image before opening
+    closedImage:
+        "assets/images/envelope-closed.jpeg",
+
+    // Image after clicking
+    openImage:
+        "assets/images/png-open-done.png",
+
+    // Envelope size
+    width:
+        "380px",
+
+    // Opening animation duration
+    animationDuration:
+        2000,
+
+    // Text shown above/below envelope
+    buttonText:
+        "افتح الدعوة"
+}
 };
