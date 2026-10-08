@@ -9,6 +9,7 @@ document.addEventListener(
         applyTheme();
 
         applyGlobalStyle();
+
         setupMainBackground();
 
         loadContent();
@@ -16,6 +17,8 @@ document.addEventListener(
         setupAllSections();
 
         setupGalleryStyle();
+
+        setupAudio();
 
         setupEnvelope();
 
@@ -839,6 +842,26 @@ async function setupEnvelope() {
     button.addEventListener(
         "click",
         () => {
+            const audio =
+                document.getElementById(
+                    "wedding-audio"
+                );
+
+
+            if (
+                audio &&
+                weddingConfig.audio?.enabled
+            ) {
+
+                audio.play()
+                    .catch(error => {
+
+                        console.log(
+                            "Audio playback failed:",
+                            error
+                        );
+                    });
+            }
 
             button.disabled =
                 true;
@@ -1120,4 +1143,35 @@ function setupMainBackground() {
         "--main-bg-overlay",
         config.overlayOpacity ?? 0.45
     );
+}
+function setupAudio() {
+
+    const audio =
+        document.getElementById(
+            "wedding-audio"
+        );
+
+    const config =
+        weddingConfig.audio;
+
+
+    if (
+        !audio ||
+        !config ||
+        !config.enabled
+    ) {
+        return;
+    }
+
+
+    audio.src =
+        config.src;
+
+    audio.volume =
+        config.volume ?? 0.6;
+
+    audio.loop =
+        config.loop ?? true;
+
+    audio.load();
 }

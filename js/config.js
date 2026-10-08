@@ -8,7 +8,27 @@ const weddingConfig = {
         bride: "Mariam",
         groom: "Hazem"
     },
+    /* =================================================
+                AUDIO 
+         ================================================= */
+    audio: {
 
+        // Enable / disable background music
+        enabled: true,
+
+        // Audio file
+        src:
+            "assets/audio/wedding2.mpeg",
+
+        // 0.0 -> silent
+        // 1.0 -> maximum
+        volume:
+            0.6,
+
+        // Repeat music after it finishes
+        loop:
+            true
+    },
 
     /* =====================================================
        WEDDING INFORMATION
