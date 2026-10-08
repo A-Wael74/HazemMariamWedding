@@ -270,7 +270,7 @@ p {
 
     text-align: center;
 
-    padding: 70px 25px;
+    padding: 40px 25px;
 
     background: transparent;
 }
@@ -863,7 +863,7 @@ p {
 
     text-align: center;
 
-    padding:  60px 25px 15px;
+    padding:  40px 25px 15px;
 
 
     background: transparent;
@@ -1352,4 +1352,22 @@ p {
 #closing-message {
     font-family: "Cormorant Garamond", serif;
     font-size: 1.4rem;
+}
+
+/* Arrow */
+.section-arrow {
+    position: relative;
+    z-index: 3;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 2rem;
+
+    line-height: 1;
+
+    margin: 0px 0;
+
+    animation: bounce 2s infinite;
 }
